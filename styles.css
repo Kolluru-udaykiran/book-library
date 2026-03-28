@@ -1,0 +1,127 @@
+/* Reset */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+}
+
+/* Header */
+header {
+    background: #4CAF50;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Grid Layout */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 columns */
+    gap: 20px;
+    padding: 20px;
+}
+/* Cards (Boxes) */
+.card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+    /* FIXES */
+    width: 100%;
+    height: 100%;
+    min-height: 250px; /* same height */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden; /* prevents overflow */
+}
+/* Make Book List and History full width (one below another) */
+.card:nth-child(4),
+.card:nth-child(5) {
+    grid-column: 1 / -1; /* span full row */
+}
+/* Inputs & Select */
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+}
+/* Top 3 boxes in one row */
+.top-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    grid-column: 1 / -1; /* full width */
+}
+
+/* Make responsive for small screens */
+@media (max-width: 768px) {
+    .top-row {
+        grid-template-columns: 1fr;
+    }
+}
+/* Buttons */
+button {
+    width: 100%;
+    padding: 10px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #45a049;
+}
+
+/* Lists */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto;   /* scroll inside box */
+    max-height: 200px;  /* prevents stretching */
+}
+
+li {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Buttons inside book list */
+.book-actions button {
+    margin-top: 5px;
+    background: #2196F3;
+}
+
+.book-actions button:last-child {
+    background: #f44336;
+}
+
+/* Book Grid Layout (3 per row) */
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+/* Each book card */
+.book-item {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    background: #fafafa;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .book-grid {
+        grid-template-columns: 1fr;
+    }
+}
